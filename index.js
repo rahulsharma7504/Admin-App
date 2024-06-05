@@ -6,7 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
  
 // Connect to MongoDB 
-mongoose.connect('mongodb://127.0.0.1:27017/admin-panel', {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,   
   useUnifiedTopology: true,
 })
@@ -24,6 +24,7 @@ app.use(morgan('dev'));
 app.use(cors()); 
 
 // For userRoutes
+
 const userRoute = require('./Routes/UserRoute');
 app.use('/users', userRoute);
 //For Admin routes
