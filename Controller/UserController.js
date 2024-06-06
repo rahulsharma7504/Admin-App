@@ -55,7 +55,7 @@ const CreateUser = async (req, res) => {
     res.status(200).json({ userData: saveUser });
   } catch (error) {
     console.error("Error registering user:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: " server error" });
   }
 };
 
