@@ -46,7 +46,7 @@ const CreateUser = async (req, res) => {
     const newUser = new User({
       name, email, password: hashPassword, mobile, address, city, DOB, DOM,
       spouseName, occupation, businessName, businessPhone, classification,
-      designation, committee, clubName, businessEmail, businessAddress,
+      designation, committee,      clubName, businessEmail, businessAddress,
       userPhoto: uploadResults[0] ? uploadResults[0].secure_url : null,
       spousePhoto: uploadResults[1] ? uploadResults[1].secure_url : null,
     });
@@ -55,10 +55,9 @@ const CreateUser = async (req, res) => {
     res.status(200).json({ userData: saveUser });
   } catch (error) {
     console.error("Error registering user:", error);
-    res.status(500).json({ message: " server error" });
+    res.status(500).json({ message: "Server error" });
   }
 };
-
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
